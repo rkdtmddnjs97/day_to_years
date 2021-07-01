@@ -1,0 +1,103 @@
+
+a:hover {color:#38940d;} 
+.clear { clear:both; }
+
+article {
+    width: 100%;
+    min-height: 180vh;
+    background-color: #ffffff;
+    overflow: auto;
+}
+
+article h1:first-child {
+    color:gray;
+    width:100%;
+    font-size: 2rem;
+    font-weight: bolder;
+    /*background-color: #c6c4da;*/
+    padding-left:17%;
+    padding-top: 1%;
+    line-height: 100px;
+}
+
+hr {
+    border-top:5px solid #9eb1db;
+    margin-left: 1%;
+}
+
+.product_rental {
+    background-color: #edf4fc/*#f1f5ff*/;
+    float: left;
+    border: 1px solid #d3d9e077;
+    margin: 20px 20px;
+    width:400px;
+    height: 350px;
+    padding: 25px 40px;
+    opacity:1.0;
+}
+
+
+.rental_wrap {
+    width: 80%;
+    margin: 0 auto;
+    padding-left: 5%;
+    padding-bottom: 30px;
+}
+
+.product_rental img {
+    border-radius: 15px;
+}
+
+.product_rental h2 {
+    font-size: 1.4rem;
+    font-weight: bolder;
+    color: rgb(146, 146, 146);
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+.product_rental h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    font-weight: 400;
+    color: black;
+}
+
+.product_rental p {
+    font-size: 1rem;
+    color:rgb(160, 160, 160);
+    margin-bottom: 2px;
+}
+
+
+
+
+.new_button {
+    color: white;
+    float:right;
+    background-color: #838383;
+    width: 150px;
+    height: 40px;
+    border: 1px solid #838383;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 40px;
+    margin-right:9%;
+    margin-left: 1%;
+}
+
+.new_button:hover {
+    color: black;
+    opacity: 0.5;
+}
+
+.rentalsuggest {
+    float:right;
+    width: 100%;
+}
+
+.hov:hover {
+    opacity: 0.8;
+    color:#199ed3;
+}

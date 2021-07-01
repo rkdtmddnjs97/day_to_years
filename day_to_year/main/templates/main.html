@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% block container %}
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="http://fonts.googleapis.com/earlyaccess/jejumyeongjo.css" rel="stylesheet">
+    <title>DaytoYear</title>
+    <style>
+        * {
+            margin: 0; 
+            padding: 0;
+        }
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            }
+
+        html, body { 
+            text-align: center;
+            height: 100%;
+            /* overflow: hidden; */
+        }
+        
+        .clearfix {
+            content: ''; 
+            display: block;
+            clear: both;
+        }
+        .box {
+            padding-top: 30px;
+        }
+
+        .intro1, .intro2, .howtouse {
+            width: auto;
+            color: rgb(68, 67, 67);
+            padding-left: 50px;
+            padding-top: 50px;
+            font-family: 'Jeju Myeongjo', sans-serif;
+        }
+
+        .intro1 {
+            background: rgb(209, 220, 235);
+            height: 300px;
+            line-height: 5rem;
+        }
+        .intro2 {
+            background: rgb(237, 244, 252);
+            height: 350px;
+        }
+        .howtouse {
+            background: rgb(216, 227, 243);
+            height: auto;
+        }
+
+        .content {
+            line-height: 2rem;
+            font-size: 18px;
+        }
+
+    </style>
+</head>
+<body>
+    </hr>
+    <div class="box">
+        <div class="intro1">
+            <h4>
+                
+                <b><br>Day To Year,<br><br></b>
+                하루부터 1년까지, <br><br>대여하고 대여받을 수 있어요.<br>
+            </h4>
+        </div>
+        <div class="intro2">
+            <h4>
+                
+                <br>안 쓰는 물건들, <br> 집에만 두지 말고 빌려주세요!<br><br>
+                몇 번 안 쓸건데, 사기 아깝다구요?<br>
+                빌려쓰세요!<br><br>
+            </h4>
+            <h6>사기엔 아깝거나, 안 쓰는 물건들을 우리동네 사람들과 공유해보세요!</h6>
+            
+            
+        </div>
+        <div class="howtouse">
+            <h4>
+                <b>
+                1. 원하는 상품을 검색하세요!<br>
+                2. 물건의 주인과 컨택하여 대여하세요!<br><br>
+                </b>
+            </h4>
+            <div class="content">
+                <br><img src="{% static 'main/목록컷.PNG' %}" style="width: 70%">
+                <br><br><b>product</b> 메뉴에 들어가면 진행중인 대여 품목들을 볼 수 있어요.<br>
+                <b>Rental Suggest</b>로 대여 제안 글도 올려보세요!<br><br><br><br>
+                <br><img src="{% static 'main/설명컷.PNG' %}" style="width: 70%">
+                <br><br>상품컷을 클릭하면 상세페이지를 볼 수 있어요.
+                <br>마음에 든다면 좋아요를 눌러 찜해보세요!<br><br><br><br>
+            </div>
+        </div>
+    </div>  
+</body>
+
+{% endblock %}

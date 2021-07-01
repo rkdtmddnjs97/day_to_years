@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <title>DayToYear</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+      }
+
+      html {
+        height: 100%;
+      }
+
+      body {
+        margin: 0;
+        height: 100%;
+      }
+
+      #wrapper {
+        min-height: 100%;
+        position: relative;
+        padding-bottom: 170px;
+      }
+
+      #header {
+        position: fixed;
+        top: 0; 
+        right: 0;
+        left: 0; 
+        height: 60px;
+        background-color: rgb(147, 161, 204); 
+      }
+
+      #content {
+        padding-top: 60px;
+        min-height: 750px;
+      }
+
+      #footer {
+        height: 180px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        text-align: center;
+        background-color: rgb(78, 94, 141);
+        color: white;
+        font-family: 'Nanum Gothic', sans-serif;
+        font-size: 14px;
+      }
+
+      #search-bar {
+        width: 200px;
+        height: 25px;
+      }
+      
+      #button {
+        width: 80px;
+        height: 60px;
+        text-align: center;
+        align-items: center;
+        padding-top: 10px;
+      }
+
+      .li {
+        align-items: center;
+      }
+
+      #button:hover {
+        background-color: rgb(68, 94, 150);
+      }
+
+      .container-fluid {
+        background-color: rgb(147, 161, 204); 
+        padding-left: 70px; 
+        padding-right: 70px; 
+        height: 60px;
+      } 
+
+      fieldset {
+        position: relative;
+        padding: 0 0 0 10px;
+        background: #fff;
+        border: none;
+        border-radius: 5px;
+      }
+
+      .input,
+      .button {
+        position: relative;
+        width: 170px;
+        height: 35px;
+        padding: 0;
+        display: inline-block;
+        float: left;
+      }
+
+      .input {
+        color: #666;
+        z-index: 2;
+        border: 0 none;
+      }
+      .input:focus {
+        outline: 0 none;
+      }
+      .input:focus + .button {
+        -webkit-transform: translate(0, 0);
+            -ms-transform: translate(0, 0);
+                transform: translate(0, 0);
+        -webkit-transition-duration: 0.3s;
+                transition-duration: 0.3s;
+      }
+
+      .button {
+        z-index: 1;
+        width: 50px;
+        border: 0 none;
+        background: #5b719e;
+        cursor: pointer;
+        border-radius: 0 5px 5px 0;  
+        -webkit-transform: translate(-50px, 0);
+            -ms-transform: translate(-50px, 0);
+                transform: translate(-50px, 0);
+        -webkit-transition-duration: 0.3s;
+                transition-duration: 0.3s;
+      }
+
+    </style>
+      
+</head>
+<body>
+  <div id="wrapper">
+    <div id="header">
+      <nav class="navbar navbar-expand-lg navbar-light" style="border:none;">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{%url 'main' %}" style="color: white;"><h3><b>DayToYear</b></h3></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item" id="button">
+                <a class="nav-link active" aria-current="page" href="{% url 'rentallist' %}" style="color: white;">product</a>
+              </li>
+              {% if not user.is_authenticated %}
+              <li class="nav-item" id="button">
+                <a class="nav-link active" aria-current="page" href="{% url 'login' %}" style="color: white;">login</a>
+              </li>
+              <li class="nav-item" id="button">
+                <a class="nav-link" href="{% url 'signup'%}" style="color: white;">sign up</a>
+              </li>
+              {% endif %}
+              {% if user.is_authenticated %}
+              <li class="nav-item" id="button">
+                <a class="nav-link" href="{% url 'myaccount'%}" style="color: white;">mypage</a>
+              </li>
+              <li class="nav-item" id="button">
+                <a class="nav-link" href="{% url 'logout'%}" style="color: white;">logout</a>
+              </li>
+              {% endif %}
+              
+            </ul>
+            
+            <form action="{% url 'search' %}" method="get">
+              <fieldset>
+                <input class="input" type="search" placeholder="search... (❁´◡`❁)"name='q' value="{{ q }}">
+                <button class="button" type="submit" style="color: #fff;">Go!</button>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div id=container>
+      <div id="content">
+        {% block container %}
+        {% endblock %}
+      </div>
+    </div>
+    <div id="footer">
+      <br><br>상호 : DaytoYear&nbsp;&nbsp;|&nbsp;&nbsp;대표자명 : 석준환
+      <br>사업자등록번호 : 000-00-00000&nbsp;&nbsp;|&nbsp;&nbsp;통신판매업신고번호 : 제0000-서울성북-0000호
+      <br><br>연락처 : 010-0000-0000&nbsp;&nbsp;|&nbsp;&nbsp;Email : 멋사@멋사.com 
+      <br>주소 : 서울특별시 성북구 정릉동 정릉로 77<br><br><br>
+    </div>
+    </div>
+  </div>
+</body>
+
+</html>

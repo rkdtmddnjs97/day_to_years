@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% block container %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My account profile</title>
+    <link rel = "stylesheet" href = "{% static 'accounts/account_profile.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <main>
+        <div class = "profile">
+            <div class = "pro_intro">PROFILE</div>
+            <div class = "pro_img">
+                <img class = "pro_img" src = "{{user.profile_img.url}}" alt = "프로필 사진">
+            </div>
+            <div class = "pro_intro hello">Hello, {{user.username}} !</div>
+            <table class = "pro_content">
+                <tr>
+                    <td>LIKE</td>
+                    <td>MYPOST</td>
+                </tr>
+                <tr class = "count">
+                    <td>{{like_cnt}}</td>
+                    <td>{{post_cnt}}</td>
+                </tr>
+            </table>
+        </div>
+        <div class = "list">
+            <ul>
+                <li>
+                    <a href = "{% url 'profile' user.id%}">Profile</a>
+                </li>
+                <li>
+                    <a href = "{% url 'mypost'%}">My Post</a>
+                </li>
+                <li>
+                    <a href = "{% url 'mylike'%}">♥</a>
+                </li>
+                <li>
+                    <a href = "{% url 'myinfo'%}">회원 정보 수정</a>
+                </li>
+            </ul>
+        </div>
+
+        
+        <section class = "section intro">
+            <h2>PROFILE</h2>
+        </section>
+
+        <section class = "section contents">
+            <div class = "sec_title">{{users.nickname}} 님의 프로필</div>
+            <div class = "sec_content">
+                <table> 
+                    <tr>
+                        <td class = "img" rowspan = "4">
+                            <img class = "pro_img" src = "{{users.profile_img.url}}" alt = "프로필 사진">
+                        </td>
+                        <td>{{users.nickname}}</td>
+                    </tr>
+
+                    <tr>
+                        <td>{{users.location}}</td>
+                    </tr>
+
+                    <tr>
+                        <td class = "last">{{users.comment}}</td>
+                    </tr>
+                </table>
+
+                {% if user.id == users.id %}
+                <div class = "submit_btn">
+                    
+                    <a href = "{% url 'profileupdate' %}" method = "POST">수정하기</a>
+                </div>
+                {% endif %}
+            </div>
+            {% if user.id != users.id %}
+            <div class = "sec_title other">{{users.nickname}} 님의 작성글</div>
+            <div class = "sec_content other">
+                <table>
+                    <tr>
+                        <th class = "product_num">No.</th>
+                        <th class = "product_name">제품명</th>
+                        <th class = "product_price">가격</th>
+                    </tr>
+                    {% if rentals %}
+                    {% for rental in rentals %}
+                    <tr>
+                        <td class = "product_num">{{rental.id}}</td>
+                        <td class = "product_name"><a href = "{% url 'product' rental.id %}">{{rental.product}}</a></td>
+                        <td class = "product_price">{{rental.price}} 원</td>
+                    </tr>
+                    {% endfor %}
+                    {% else %}
+                    <tr>
+                        <td colspan="3" class = "no_product">내역이 없습니다.</td>
+                    </tr>
+                    {% endif %}
+                    
+                </table>
+            </div>
+            {% endif %}
+        </section>
+
+
+
+
+
+
+    </main>
+<!--
+    <footer>
+        <ul>
+            <li><a href="#">이용약관</a></li>
+            <li><a href="#">개인정보 보호</a></li>
+            <li><a href="#">고객센터</a></li>
+        </ul>
+
+    </footer>
+-->
+</body>
+</html>
+{% endblock %}

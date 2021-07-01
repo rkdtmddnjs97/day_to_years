@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@500&display=swap" rel="stylesheet">
+<link href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css" rel="stylesheet">
+
+    <style>
+      
+    
+        #login-h1 {
+            font-family: 'Nanum Gothic', sans-serif;
+            font-size: 2.5rem;
+            color: #6892c2;
+            margin-top: 50px;
+            text-align: center;
+            
+        }
+        
+        
+        #login-form {
+            margin-bottom: 15rem;
+        }
+
+        #login-box {
+            margin-left: 400px;
+            margin-right: 400px;
+            margin-top: 1rem;
+            color: #5e5f61;
+            text-align: center;
+            border: 2px solid #4b6380;
+            border-radius: 5px;
+            background-color: rgb(237, 244, 252);
+            font-family: 'Nanum Gothic', sans-serif;
+        }
+
+        #text {
+            text-align: left;
+            line-height: 1.5rem;
+            margin-left: 140px;
+            margin-top: 1.3rem;
+            color: #5e5f61;
+        }
+
+        a {
+            text-align: center;
+            
+        }
+        #id {
+            margin-bottom: 1rem;
+
+        }
+        
+        #password{
+            margin-bottom: 1rem;
+        }
+
+        #submit {
+            margin-top: 1rem;
+            margin-bottom: 3rem;
+            width: 5rem;
+            height: 2.5rem;
+            background-color: #DEEDF0;
+            color: #314864;
+            font-family: 'Nanum Gothic', sans-serif;;
+            font-size: 1rem; 
+            border: 1.3px solid #314864; 
+            border-radius: 10px;  
+        }
+
+        #submit:hover {
+            background-color: #9cbad6;
+        }
+
+        body{
+            background-color: #FFB98B;
+            height: 300%;
+            
+        }
+        #error_message {
+            color: red;
+        }
+     
+    </style>
+</head>
+<body>
+    
+
+    {% extends 'base.html' %}
+
+    {% block container %}
+    
+    <div id = "login-h1">
+        <b>Login</b>
+    </div>
+    
+
+    {{ request.user.username}}
+    <div id = "login-form">
+    <form action="{%url 'login'%}" id="login-box" method="POST">
+        {%csrf_token%}
+
+        <div id="text"><br><b>아이디</b></div> 
+        <input type="text" name="username" id="id" required> 
+        <div id="text"><b>비밀번호</b></div> 
+        <input type="password" name="password" id="password" required><br>
+        <h6 id="error_message">{{error}}</h6><br>
+        <button type="submit" id="submit"><b>login</b></button>
+    </form>
+    
+
+    
+    {% endblock %}
+</div>
+
+</body>
+</html>

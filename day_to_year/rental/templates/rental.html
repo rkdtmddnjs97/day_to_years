@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block container %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>day to year</title>
+    <link rel="stylesheet" href="{% static 'rental/css/rental.css' %}">
+</head>
+<body class="wrap">
+        <div id="arti_center">
+            <article>
+                <h1>Rental Product</h1>
+                <div class="rental_wrap">
+                    <div class="rentalsuggest">
+                        {% if user.is_authenticated %}
+                        <a href="{% url 'new' %}">
+                            <div class="new_button">
+                                Rental Suggest
+                            </div>
+                        </a>
+                        {% endif %} 
+                        <hr>
+                    </div>  
+                        
+                        {% for rental in rentals %} 
+                        <a class="hov" href="{% url 'product' rental.id %}">
+                            <div class="product_rental">
+                                    <img src="{{ rental.images.url }}" width="320" height="180">
+                                    <h2>{{rental.product}}</h2>
+                                    <h3>{{rental.price}}원 for {{rental.rentterm}}days</h3> 
+                                    <!--<p>작성자: {{rental.writer.nickname}}</p>-->
+                                    <p>{{rental.location_city}}
+                                       {{rental.location_detail}}</p>
+                                    <p>{{rental.information}}</p>
+                            </div>
+                        </a>
+                        {% endfor %}
+                </div>   
+            </article>
+        </div>
+</body>
+
+</html>
+{% endblock %}

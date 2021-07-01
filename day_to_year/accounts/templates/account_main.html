@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+{% block container %}
+{% load static %}
+    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My account</title>
+    <link rel = "stylesheet" href = "{% static 'accounts/account_main.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main>
+        <div class = "profile">
+            <div class = "pro_intro">PROFILE</div>
+            <div class = "pro_img">
+                <img class = "pro_img" src = "{{user.profile_img.url}}" alt = "프로필 사진">
+            </div>
+            <div class = "pro_intro hello">Hello, {{user.username}} !</div>
+            <table class = "pro_content">
+                <tr>
+                    <td>LIKE</td>
+                    <td>MYPOST</td>
+                </tr>
+                <tr class = "count">
+                    <td>{{like_cnt}}</td>
+                    <td>{{post_cnt}}</td>
+                </tr>
+            </table>
+        </div>
+        <div class = "list">
+            <ul>
+                <li>
+                    <a href = "{% url 'profile' user.id%}">Profile</a>
+                </li>
+                <li>
+                    <a href = "{% url 'mypost'%}">My Post</a>
+                </li>
+                <li>
+                    <a href = "{% url 'mylike'%}">♥</a>
+                </li>
+                <li>
+                    <a href = "{% url 'myinfo'%}">회원 정보 수정</a>
+                </li>
+            </ul>
+        </div>
+
+        
+
+        <section class = "section recent">
+            <div class = "sec_title">내 지역 최신순 글</div>
+            {% if local %}
+            {% for loc in local %}
+            <a href = "{% url 'product' loc.id %}">
+                <article>
+                    <img src = "{{loc.images.url}}" alt = "제품이미지">
+                </article>
+            </a>
+            
+            {% endfor %}
+
+            {% else %}
+            <div class = "nopost">
+                내역이 존재하지 않습니다.
+            </div>
+            {% endif %}
+
+        </section>
+
+
+
+        <section class = "section like">
+            <div class = "sec_title">
+                좋아요 한 글
+                <a href = "{% url 'mylike'%}" class = "more">more > </a>
+            </div>
+            {% if mylikes %}
+            {% for mylike in mylikes %}
+            <a href = "{% url 'product' mylike.rental.id %}">
+                <article>
+                    <img src = "{{mylike.rental.images.url}}" alt = "제품이미지">
+                </article>
+            </a>
+            
+            {% endfor %}
+
+            {% else %}
+            <div class = "nopost">
+                내역이 존재하지 않습니다.
+                <div>
+                    <a href="{% url 'rentallist' %}">둘러보기</a>
+                </div>
+            </div>
+            {% endif %}
+        </section>
+
+
+        <section class = "section mine">
+            <div class = "sec_title">내가 작성한 글
+                <a href = "{% url 'mypost'%}" class = "more">more > </a>
+            </div>
+            {% if myposts %}
+            {% for mypost in myposts %}
+            <a href = "{% url 'product' mypost.id %}">
+                <article>
+                    <img src = "{{mypost.images.url}}" alt = "제품이미지">
+                </article>
+            </a>
+            
+            {% endfor %}
+
+            {% else %}
+            <div class = "nopost">
+                내역이 존재하지 않습니다.
+                <div>
+                    <a href="{% url 'new' %}">상품 올리기</a>
+                </div>
+            </div>
+            {% endif %}
+        </section>
+        
+    </main>
+<!--
+    <footer>
+        <ul>
+            <li><a href="#">이용약관</a></li>
+            <li><a href="#">개인정보 보호</a></li>
+            <li><a href="#">고객센터</a></li>
+        </ul>
+
+    </footer>
+-->
+</body>
+</html>
+{% endblock %}

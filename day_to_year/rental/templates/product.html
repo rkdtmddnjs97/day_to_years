@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block container %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>day to year</title>
+    <link rel="stylesheet" href="{% static 'rental/css/product.css' %}">
+</head>
+<body>
+    <section class="product">
+        <h1>Product Detail</h1>
+        <hr>
+        <article class="left">
+            <div class="container">
+            {% if rental.images %}
+            <img src="{{ rental.images.url }}" width="600px" height="392px">
+            {% endif %}
+            </div>
+        </article>
+        <aside class="right">
+            <div class="information">
+                <p class="nick"><a href="{% url 'profile' rental.writer.id%}">{{rental.writer.nickname}}</a>님의</p><br>
+                <h1>{{rental.product}}</h1><br>
+                <p class="rentterm">{{rental.rentterm}}일동안 {{rental.price}}원</p>
+                <br>
+                <p class="rental_address">{{rental.location_city}} {{rental.location_detail}}<br>{{rental.information}}</p><br>
+                <p class="rental_chat">{{rental.chatting}}</p>
+                {% if user.is_authenticated %}<!--<img src="" alt="좋아요" width="100px" height="100px">-->
+                        {% if liked %}
+                            <button id="like"><a class="like1 hov" href="{% url 'like' rental.id %}">{{total_likes}} DISLIKE</a></button>
+                        {% else %}
+                            <button id="like"><a class="like1 hov" href="{% url 'like' rental.id %}">{{total_likes}} LIKE</a></button>
+                        {% endif %}
+                        {% if request.user.id == rental.writer.id%}               
+                            <a class="edit2 hov" href="{% url 'delete' rental.id %}">delete</a>  
+                            <a class="edit1 hov" href="{% url 'edit' rental.id %}">edit</a>
+                        {% endif %}
+                {% endif %} 
+            </div>          
+        </aside>
+    </section>
+</body>
+<footer>
+    
+</footer>
+</html>
+{% endblock %}

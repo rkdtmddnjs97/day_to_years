@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signup</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@500&display=swap" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
+    <style>
+        #id-part {
+            margin-top: 1rem;
+            height: 1.5rem;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        #signup_box {
+            text-align: center;
+            margin: 50px 13%;
+            background-color: rgb(237, 244, 252);
+            font-family: 'Noto Sans KR', sans-serif;
+            margin-left: 270px;
+            margin-right: 270px; 
+            border: 2px solid #4b6380;
+            border-radius: 5px;
+            line-height: 1.5rem;
+        }
+
+        #signup-h1 {
+            font-family: 'Nanum Gothic', sans-serif;
+            font-size: 2.5rem;
+            color: #6892c2;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        #text {
+            text-align: left;
+            line-height: 1.7rem;
+            margin-left: 220px;
+            color: #5e5f61;
+        }
+
+        #text2 {
+            text-align: left;
+            line-height: 1.4rem;
+            margin-left: 220px;
+            color: #5e5f61;
+            font-size: 12px;
+        }
+        #id{
+            margin-bottom: 8px;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        #password1 {
+            margin-bottom: 8px;
+        }
+        
+        #password2 {
+            margin-bottom: 8px;
+        }
+
+        #nickname {
+            margin-bottom: 8px;
+        }
+
+        
+
+        #phone_num {
+            margin-bottom: 8px;
+        }
+
+        #profile_img{
+            margin-bottom: 8px;
+        }
+        #submit {
+            margin: 2rem;
+            background-color: #DEEDF0;
+            /* margin-top: 1rem; */
+            margin-bottom: 3rem; 
+            width: 6rem;
+            height: 3rem;
+            color: #314864;
+            font-family: 'Nanum Gothic', sans-serif;
+            font-size: 1rem; 
+            border: 1.3px solid #4b6380; 
+            border-radius: 10px;  
+        }
+
+        input {
+            width: 40%;
+            background-color: #f3f9fc;
+            border: 1px solid;
+            border-radius: 2px;
+        }
+
+        #location {
+            width: 18rem;
+            
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+    {% extends 'base.html' %}
+
+    {% block container %}
+    <div id="signup-h1">
+        <b>Sign up</b>
+    </div>
+    
+    
+    <form action="{% url 'signup' %}" id="signup_box" method="POST"  enctype="multipart/form-data">
+        {%csrf_token%}
+        
+        <div id="text"><br><br>아이디<br></div> 
+        <input type="text" name="username" id="id" required><br> 
+
+        <div id="text"><br>비밀번호<br></div>
+        <input type="password" name="password1" id="password1" minlength="8" 
+        pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,16}$" required><br> 
+        <div id="text2">*비밀번호는 아이디와 유사하면 안됨<br>
+        *최소 8자리, 최대 16자리<br>
+        *숫자로만 적으면 안됨<br>
+        *특수 문자 1개 이상 포함 <br></div>
+    
+        <div id="text"><br>비밀번호 확인<br></div>
+        <input type="password" name="password2" id="password2" required> <br>
+        <br>
+        
+        <div id="text">닉네임<br></div> 
+        <input type="text" name="nickname" id="nickname" required><br><br> 
+        <div id="text">지역<br></div> 
+        <select name="location" id="location">
+            <option value="서울시">서울시</option>
+            <option value="부산시">부산시</option>
+            <option value="대구시">대구시</option>
+            <option value="인천시">인천시</option>
+            <option value="광주시">광주시</option>
+            <option value="대전시">대전시</option>
+            <option value="울산시">울산시</option>
+            <option value="세종시">세종시</option>
+            <option value="경기도">경기도</option>
+            <option value="강원도">강원도</option>
+            <option value="충청도">충청도</option>
+            <option value="전라도">전라도</option>
+            <option value="경상도">경상도</option>
+            <option value="제주도">제주도</option>
+        </select>
+    </p>
+    
+        <div id="text">핸드폰 번호<br></div> 
+        <input type="tel" name="phone_num" id="phone_num" required> <br><br> 
+        <div id="text">프로필 사진<br></div> 
+        <input type="file" src="" alt="profile_img">
+        
+    <br>
+        <button type="submit" id="submit"><b>sign up</b></button>
+    </form>
+    
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% block container %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My account mypost</title>
+    <link rel = "stylesheet" href = "{% static 'accounts/account_mypost.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <main>
+        <div class = "profile">
+            <div class = "pro_intro">PROFILE</div>
+            <div class = "pro_img">
+                <img class = "pro_img" src = "{{user.profile_img.url}}" alt = "프로필 사진">
+            </div>
+            <div class = "pro_intro hello">Hello, {{user.username}} !</div>
+            <table class = "pro_content">
+                <tr>
+                    <td>LIKE</td>
+                    <td>MYPOST</td>
+                </tr>
+                <tr class = "count">
+                    <td>{{like_cnt}}</td>
+                    <td>{{post_cnt}}</td>
+                </tr>
+            </table>
+        </div>
+        <div class = "list">
+            <ul>
+                <li>
+                    <a href = "{% url 'profile' user.id%}">Profile</a>
+                </li>
+                <li>
+                    <a href = "{% url 'mypost'%}">My Post</a>
+                </li>
+                <li>
+                    <a href = "{% url 'mylike'%}">♥</a>
+                </li>
+                <li>
+                    <a href = "{% url 'myinfo'%}">회원 정보 수정</a>
+                </li>
+            </ul>
+        </div>
+
+        
+        <section class = "section intro">
+            <h2>내가 작성한 글</h2>
+            내가 작성한 글 목록을 확인할 수 있습니다.
+        </section>
+        
+        <section class = "section gallery">
+            {% if myposts %}
+            {% for mypost in myposts %}
+            <a href = "{% url 'product' mypost.id %}">
+                <article>
+                    <div class = "photo">
+                        <img src = "{{mypost.images.url}}" alt = "제품이미지">
+                    </div>
+                    <div class = "info">
+                        <div class = "like on"></div>
+                        <div class = "writer">{{mypost.writer}}</div>
+                        <div class = "price">{{mypost.price}} 원</div>
+                        <div class = "comment">{{mypost.information|truncatechars:10}}</div>
+                    </div>
+                </article>
+            </a>
+            {% endfor %}
+            
+            {% else %}
+            <div class = "nopost">내역이 존재하지 않습니다.</div>
+            {% endif %}
+                    
+        </section>
+        
+    </main>
+<!--
+    <footer>
+        <ul>
+            <li><a href="#">이용약관</a></li>
+            <li><a href="#">개인정보 보호</a></li>
+            <li><a href="#">고객센터</a></li>
+        </ul>
+
+    </footer>
+-->
+    
+</body>
+</html>
+{% endblock %}

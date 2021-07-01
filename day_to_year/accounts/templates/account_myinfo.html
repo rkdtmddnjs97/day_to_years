@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% block container %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My account myinfo</title>
+    <link rel = "stylesheet" href = "{% static 'accounts/account_myinfo.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <main>
+        <div class = "profile">
+            <div class = "pro_intro">PROFILE</div>
+            <div class = "pro_img">
+                <img class = "pro_img" src = "{{user.profile_img.url}}" alt = "프로필 사진">
+            </div>
+            <div class = "pro_intro hello">Hello, {{user.username}} !</div>
+            <table class = "pro_content">
+                <tr>
+                    <td>LIKE</td>
+                    <td>MYPOST</td>
+                </tr>
+                <tr class = "count">
+                    <td>{{like_cnt}}</td>
+                    <td>{{post_cnt}}</td>
+                </tr>
+            </table>
+        </div>
+        <div class = "list">
+            <ul>
+                <li>
+                    <a href = "{% url 'profile' user.id%}">Profile</a>
+                </li>
+                <li>
+                    <a href = "{% url 'mypost'%}">My Post</a>
+                </li>
+                <li>
+                    <a href = "{% url 'mylike'%}">♥</a>
+                </li>
+                <li>
+                    <a href = "{% url 'myinfo'%}">회원 정보 수정</a>
+                </li>
+            </ul>
+        </div>
+
+        
+        <section class = "section intro">
+            <h2>회원 정보 수정</h2>
+            주소 및 연락처 등 개인 정보를 수정하실 수 있습니다.
+            
+        </section>
+
+        <section class = "section contents">
+            <div class = "sec_title">기본 정보</div>
+
+            <div class = "sec_content">
+
+                <table>
+                    <tr><!--첫번째 줄 아이디-->
+                        <th>아이디</th>
+                        <td>{{user.username}}</td>
+                    </tr>
+
+                    <tr><!--두번째 줄 번호-->
+                        <th>핸드폰번호</th>
+                        <td>{{user.phone_num}}</td>
+                    </tr>
+
+                    <tr><!--세번째 줄 닉네임-->
+                        <th>닉네임</th>
+                        <td>{{user.nickname}}</td>
+                    </tr>
+
+                    <tr><!--네번째 줄 지역-->
+                        <th>지역</th>
+                        <td>{{user.location}}</td>
+                    </tr>
+                </table>
+
+                <div class = "submit_btn">
+                    <a href = "{% url 'myinfoupdate' %}" method = "POST">수정하기</a>
+                </div>
+
+            </div>
+
+            <div class = "sec_title">비밀번호 수정란</div>
+            <div class = "sec_content">
+                <div class = "submit_btn">
+                    <a href = "{% url 'change_password' %}">수정하기</a>
+                </div>
+            
+            
+        </section>
+
+        
+    </main>
+
+
+</body>
+</html>
+{% endblock %}

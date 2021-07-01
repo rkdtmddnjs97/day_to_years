@@ -1,0 +1,221 @@
+a{
+    text-decoration: none;
+    display : block;
+}
+
+main {
+    display : grid;
+    grid-template-columns : 1fr 3fr;
+    grid-template-rows : 100px 230px 200px 1fr;
+    column-gap : 20px;
+    grid-template-areas :
+        "profile sec_intro"
+        "profile sec_main"
+        "category sec_main"
+        " .  sec_main";
+
+
+    width : 900px;
+    min-height : 95vh;
+    margin : 0px auto;
+    padding : 30px 0 30px 0;
+}
+
+
+main .profile {
+    grid-area: profile;
+    margin-left : 20px;
+    background-color : white;
+    /*background-color: rgb(255, 238, 241);*/
+}
+
+main .profile .pro_intro {
+    margin-top : 15px;
+    text-align: center;
+    /*background-color: rgb(237, 244, 252);*/
+    font-weight: 600;
+    font-family: 'Open Sans', sans-serif;
+}
+
+main .profile .pro_intro:after {
+    margin : 0 auto;
+    content : "";
+    border-bottom : 3px solid rgba(147, 161, 204, 0.418);
+    display : block;
+    width : 50px;
+}
+
+main .profile .pro_img img {
+    margin : 20px auto;
+    width : 120px;
+    height : 120px;
+    display : block;
+    border-radius: 50%;
+}
+
+main .profile .pro_intro.hello {
+    margin : 15px 0;
+    text-align: center;
+    /*background-color: rgb(237, 244, 252);*/
+    font-weight: 600;
+    font-family: 'Roboto', sans-serif;
+}
+
+main .profile .pro_intro.hello:after {
+    margin : 0 auto;
+    content : "";
+    border-bottom : white;
+    display : block;
+    width : 100px;
+}
+
+main .profile .pro_content{
+    background-color: rgb(221, 248, 222);
+    padding : 3px 20px;
+    text-align: center;
+}
+
+
+main .profile table.pro_content{
+    background-color: rgb(237, 244, 252);
+    width : 200px;
+    height : 90px;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+main .profile table td{
+    width : 100px;
+    border : 3px solid rgb(255, 255, 255);
+}
+
+main .profile table tr.count td {
+    background-color: white;
+}
+
+main .list {
+    grid-area : category;
+    background-color: white;
+    /*background-color: rgb(255, 255, 221);
+    margin : 20px 0 0 20px;*/
+    margin-left : 20px;
+}
+
+main .list ul {
+    padding : 0;
+    margin : 0;
+    
+}
+
+main .list ul li {
+    border-top : 1px solid rgb(200,200,200);
+    list-style: none;
+    padding : 15px 20px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+main .list ul li a {
+    text-decoration: none;
+    color : black;
+    display : block;
+}
+
+main .list ul li:hover {
+    background-color : rgba(147, 161, 204, 0.418);
+}
+
+
+
+main .section.intro {
+    grid-area : sec_intro;
+    margin : 0 20px;
+    padding-top : 20px;
+    background-color: white;
+    border-top :  4px solid rgba(147, 161, 204, 0.418);
+    font-size : 1rem;
+    line-height : 1.3em;
+    text-align: center;
+}
+
+main .section.contents {
+    grid-area : sec_main;
+    width : 100%;
+    margin : 20px 20px 20px 0;
+}
+
+
+main .section .sec_title {
+    padding : 10px 0 10px 20px;
+    width : 80%;
+    margin : 0 auto;
+    font-weight: 700;
+    background-color: white;
+    color :rgb(15, 27, 70);
+    border-bottom : 4px solid rgba(147, 161, 204, 0.7);
+}
+
+
+main .section.contents .sec_content form table {
+    width : 80%;
+    margin : 0 auto;
+    border : 0px solid white;
+    border-collapse: collapse;
+}
+
+main .section.contents .sec_content form table tr {
+    border-bottom : 1px solid rgb(200, 200, 200);
+}
+
+main .section.contents .sec_content form table td {
+    height : 60px;
+    padding-right : 20px;
+    padding-left : 10px;
+    font-size : 14px;
+}
+
+main .section.contents .sec_content form table td.last {
+    height : 100px;
+}
+
+main .section.contents .sec_content form table td.img {
+    width : 200px;
+    padding-left : 20px;
+}
+
+main .section.contents .sec_content form table td.img input {
+    width : 100%;
+}
+
+main .section.contents .sec_content form table .img .pro_img {
+    width : 150px;
+    height : 150px;
+    border-radius: 50%;
+}
+
+main .section.contents .sec_content form table td.last textarea{
+    width : 300px;
+    height : 100px;
+}
+
+main .section .sec_content .submit_btn {
+    display : block;
+    border : none;
+    margin : 20px  auto;
+    width : 100px;
+    height : 40px;
+    background-color: rgb(78, 94, 141);
+    color : white;
+    font-size: 15px;
+}
+
+main .section .sec_content .submit_btn a{
+    text-align: center;
+    color : white;
+    padding-top : 6px;
+}
+
+
+main .section .sec_content .submit_btn:hover {
+    background-color: rgba(78, 94, 141, 0.5);
+}

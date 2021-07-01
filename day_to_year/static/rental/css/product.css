@@ -1,0 +1,351 @@
+@media (min-width:1024px) {
+a {color:rgb(0, 0, 0); text-decoration: none;}
+#like a:hover {color:#1a6ebd;} 
+.clear { clear:both; }
+
+.nick a {
+    color: rgb(90, 90, 90);
+    font-weight: bolder;
+    font-size: 1.6rem;
+    opacity: 1.0;
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    text-decoration-color: rgb(194, 194, 194);
+    text-decoration-style: double;
+}
+
+.nick a:hover {
+    color:rgb(148, 148, 148);
+    opacity: 0.5;
+    line-height: 0;
+}
+
+.product {
+    width: 100%;
+    max-height: 95vh;
+    padding-bottom: 3%;
+}
+
+.product h1:first-child {
+    color:gray;
+    width:100%;
+    height:100px;
+    font-size: 2rem;
+    font-weight: bolder;
+    line-height: 100px;
+    padding-left: 6%;
+    margin-top: 0.5%;
+    /*background-color: #c6c4da;*/
+}
+
+
+hr {
+    border-top:5px solid #9eb1db;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+
+.left {
+    float:left;
+    margin-left: 5%;
+    margin-top: 20px;
+    margin-bottom: 5%;
+}
+
+.right {
+    width: 370px;
+    float: right;
+    margin-right: 8%;
+    margin-top: 5px;
+}
+
+.right h1 {
+    font-size: 3.5rem;
+    font-weight: bolder;
+    color:rgb(93, 93, 93);
+    margin-top: 8px;
+    line-height: 0px;
+}
+
+.nick {
+    font-size: 1.3rem;
+    font-weight: 400
+}
+
+
+.rentterm {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color:rgb(76, 82, 80);
+    margin-top: 10px;
+    text-align: right;
+}
+
+.rental_address {
+    margin-top: 0px;
+    font-size: 1.2rem;
+    color:rgb(190, 190, 190);
+}
+
+
+.rental_chat {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color:rgb(190, 190, 190);
+    margin-top: 0px;
+}
+
+#like {
+    color: white;
+    /*position: absolute;
+    top: 72%;
+    right: 32%;*/
+    height: 35px;
+    width:100px;
+    border: 1px solid #d3d9e077;
+    border-radius: 20px;
+    font-size: 1rem;
+    text-align: center;
+    line-height: 32px;
+    font-weight: 800;
+    margin-top:30px;
+    background-color: #edf4fc;
+}
+
+
+
+.edit1 {
+    /*position: absolute;
+    top: 40%;
+    right: 8%;*/
+    float: right;
+    font-size: 1.2rem;
+    margin-left: 50px;
+    margin-top: 25px;
+    border: 1px solid #dadada;
+    border-radius: 15px;
+    color: #c3c3c3;
+}
+
+.container {
+    width: 100%;
+    height:392px;
+    overflow: hidden;
+}
+
+.container img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.edit2 {
+    /*position: absolute;
+    top: 40%;
+    right: 8%;*/
+    font-size: 1.2rem;
+    margin-left: 15px;
+    margin-top: 25px;
+    border: 1px solid #dadada;
+    border-radius: 15px;
+    color: #c3c3c3;
+    float: right;
+}
+
+
+
+.edit a:hover {
+    color:#606060
+}
+
+
+.hov:hover {
+    opacity: 0.4;
+    color:#199ed3;
+}
+
+}
+
+@media (max-width:1024px) {
+    
+.container {
+    width: 60%;
+    height:70%;
+    overflow: hidden;
+}
+
+.container img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+    a {color:rgb(0, 0, 0); text-decoration: none;}
+    #like a:hover {color:#1a6ebd;} 
+    .clear { clear:both; }
+    
+    .nick a {
+        color: rgb(90, 90, 90);
+        font-weight: bolder;
+        font-size: 1rem;
+        opacity: 1.0;
+        text-decoration: underline;
+        text-underline-offset: 6px;
+        text-decoration-color: rgb(194, 194, 194);
+        text-decoration-style: double;
+        float:left;
+    }
+    
+    .nick a:hover {
+        color:rgb(148, 148, 148);
+        opacity: 0.5;
+    }
+    
+    .product {
+        width: 100%;
+        height: 180vh;
+    }
+    
+.product h1:first-child {
+    color:gray;
+    width:100%;
+    height:100px;
+    font-size: 2rem;
+    font-weight: bolder;
+    line-height: 100px;
+    padding-left: 6%;
+    margin-top: 0.5%;
+    /*background-color: #c6c4da;*/
+}
+
+
+hr {
+    border-top:5px solid #9eb1db;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+
+.left {
+    float:left;
+    margin-left: 5%;
+    margin-top: 20px;
+    margin-bottom: 5%;
+}
+
+.right {
+    width: 300px;
+    float: left;
+    margin-right: 8%;
+    margin-top: 5px;
+    margin-left: 8%;
+}
+
+.right h1 {
+    font-size: 3rem;
+    font-weight: bolder;
+    color:rgb(93, 93, 93);
+    margin-top: 8px;
+    line-height: 0px;
+}
+
+.nick {
+    font-size: 1.3rem;
+    font-weight: 400
+}
+
+
+.rentterm {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color:rgb(76, 82, 80);
+    margin-top: 10px;
+    text-align: right;
+}
+
+.rental_address {
+    margin-top: 0px;
+    font-size: 1.2rem;
+    color:rgb(190, 190, 190);
+}
+
+
+.rental_chat {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color:rgb(190, 190, 190);
+    margin-top: 0px;
+}
+
+#like {
+    color: white;
+    /*position: absolute;
+    top: 72%;
+    right: 32%;*/
+    height: 35px;
+    width:100px;
+    border: 1px solid #d3d9e077;
+    border-radius: 20px;
+    font-size: 1rem;
+    text-align: center;
+    line-height: 32px;
+    font-weight: 800;
+    margin-top:30px;
+    background-color: #edf4fc;
+}
+
+
+
+.edit1 {
+    /*position: absolute;
+    top: 40%;
+    right: 8%;*/
+    float: right;
+    font-size: 1.2rem;
+    margin-left: 50px;
+    margin-top: 25px;
+    border: 1px solid #dadada;
+    border-radius: 15px;
+    color: #c3c3c3;
+}
+
+.container {
+    width: 100%;
+    height:392px;
+    overflow: hidden;
+}
+
+.container img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.edit2 {
+    /*position: absolute;
+    top: 40%;
+    right: 8%;*/
+    font-size: 1.2rem;
+    margin-left: 15px;
+    margin-top: 25px;
+    border: 1px solid #dadada;
+    border-radius: 15px;
+    color: #c3c3c3;
+    float: right;
+}
+
+
+
+.edit a:hover {
+    color:#606060
+}
+
+
+.hov:hover {
+    opacity: 0.4;
+    color:#199ed3;
+}
+    
+    }
+
+

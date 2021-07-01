@@ -1,0 +1,194 @@
+body {
+    background-color: white;
+}
+
+
+main {
+    display : grid;
+    grid-template-columns : 1fr 3fr;
+    grid-template-rows : 300px 40px 200px 60px 300px 1fr;
+    column-gap : 20px;
+    grid-template-areas :
+        "profile sec_1"
+        "profile sec_2"
+        "category sec_2"
+        " .  sec_2"
+        " .  sec_3";
+
+
+    width : 900px;
+    min-height : 95vh;
+    margin : 0px auto;
+    padding : 30px 0 30px 0;
+    /*background-color: rgb(243, 243, 243);*/
+}
+
+main .profile {
+    grid-area: profile;
+    margin-left : 20px;
+    background-color : white;
+    /*background-color: rgb(255, 238, 241);*/
+}
+
+main .profile .pro_intro {
+    margin-top : 15px;
+    text-align: center;
+    /*background-color: rgb(237, 244, 252);*/
+    font-weight: 600;
+    font-family: 'Open Sans', sans-serif;
+}
+
+main .profile .pro_intro:after {
+    margin : 0 auto;
+    content : "";
+    border-bottom : 3px solid rgba(147, 161, 204, 0.418);
+    display : block;
+    width : 50px;
+}
+
+main .profile .pro_img img {
+    margin : 20px auto;
+    width : 120px;
+    height : 120px;
+    display : block;
+    border-radius: 50%;
+}
+
+main .profile .pro_intro.hello {
+    margin : 15px 0;
+    text-align: center;
+    /*background-color: rgb(237, 244, 252);*/
+    font-weight: 600;
+    font-family: 'Roboto', sans-serif;
+}
+
+main .profile .pro_intro.hello:after {
+    margin : 0 auto;
+    content : "";
+    border-bottom : white;
+    display : block;
+    width : 100px;
+}
+
+main .profile .pro_content{
+    background-color: rgb(221, 248, 222);
+    padding : 3px 20px;
+    text-align: center;
+}
+
+
+main .profile table.pro_content{
+    background-color: rgb(237, 244, 252);
+    width : 200px;
+    height : 90px;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+main .profile table td{
+    width : 100px;
+    border : 3px solid rgb(255, 255, 255);
+}
+
+main .profile table tr.count td {
+    background-color: white;
+}
+
+main .list {
+    grid-area : category;
+    background-color: white;
+    /*background-color: rgb(255, 255, 221);
+    margin : 20px 0 0 20px;*/
+    margin-left : 20px;
+}
+
+main .list ul {
+    padding : 0;
+    margin : 0;
+    
+}
+
+main .list ul li {
+    border-top : 1px solid rgb(200,200,200);
+    list-style: none;
+    padding : 15px 20px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+main .list ul li a {
+    text-decoration: none;
+    color : black;
+    display : block;
+}
+
+main .list ul li:hover {
+    background-color : rgba(147, 161, 204, 0.418);
+}
+
+main .section {
+    background-color: rgb(237, 244, 252);
+    margin-right: 20px;
+    margin-bottom : 20px;
+}
+
+main .section.recent {
+    grid-area : sec_1;
+    
+}
+
+main .section.like {
+    grid-area : sec_2;
+}
+
+main .section.mine {
+    grid-area : sec_3;
+}
+
+main .section .sec_title {
+    padding : 10px 0 20px 20px;
+    font-weight: 700;
+    background-color: white;
+    color :rgb(15, 27, 70);
+    border-top : 4px solid rgba(147, 161, 204, 0.418);
+}
+
+main .section .sec_title .more {
+    float : right;
+    font-weight: 400;
+    color : gray;
+}
+
+main .section article {
+    display: inline-block;
+    margin : 15px 0 0 15px;
+    width : 190px;
+    height : 190px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+}
+
+main .section article:hover {
+    background-color : rgba(211, 218, 226, 0.692);
+}
+main .section a {
+    text-decoration: none;
+}
+
+main .section a:hover {
+    cursor: pointer;
+}
+
+main .section article img {
+    margin : 10%;
+    width : 80%;
+    height : 80%;
+    
+    border-radius: 5px;
+}
+
+main .section .nopost {
+    padding-top : 90px;
+    text-align: center;
+}
